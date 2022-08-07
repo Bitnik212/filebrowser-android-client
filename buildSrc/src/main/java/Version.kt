@@ -53,4 +53,13 @@ object Version {
 
     const val WORK_MANAGER = "2.5.0"
 
+    const val SPLASHSCREEN = "1.0.0-beta02"
+
+    const val CHUCKER = "3.5.2"
+
+    const val NAVIGATION = "2.5.0"
+
+    const val GSON = "2.9.0"
+
+    const val DATASTORE = "1.0.0"
 }

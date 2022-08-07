@@ -1,12 +1,17 @@
 object Module {
 
-    object Feature {
+    const val APP = ":app:"
 
-        val ALL = listOf<String>()
-    }
+    const val Common = "$APP:common"
 
-    object Core {
+    const val Network = "$APP:network"
 
-    }
+    const val API = "$APP:api"
+
+    const val DATABASE = "$APP:database"
+
+    val ALL = listOf<String>(Common, API)
+
+    val ALL_FEATURES = listOf(Common, API, DATABASE)
 
 }

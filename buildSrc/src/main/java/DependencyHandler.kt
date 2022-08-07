@@ -32,19 +32,27 @@ fun DependencyHandler.material() {
     implementation(Library.MATERIAL)
 }
 
+fun DependencyHandler.splashscreen() {
+    implementation(Library.SPLASHSCREEN)
+}
+
 fun DependencyHandler.kotlinStd() {
     implementation(Library.KOTLIN_STDLIB)
 }
 
-fun DependencyHandler.featureModules() {
-    Module.Feature.ALL.forEach(this::implementationModule)
+fun DependencyHandler.allModules() {
+    Module.ALL.forEach {
+        implementationModule(it)
+    }
 }
 
 fun DependencyHandler.retrofit() {
     implementation(Library.RETROFIT)
+    implementation(Library.RETROFIT_SCALARS)
     implementation(Library.OKHTTP_LOGGING_INTERCEPTOR)
     implementation(Library.OKHTTP)
-    implementation(Library.MOSHI_RETROFIT)
+    implementation(Library.GSON)
+    implementation(Library.GSON_RETROFIT)
 }
 
 fun DependencyHandler.apollo() {
@@ -62,7 +70,7 @@ fun DependencyHandler.lottie() {
 }
 
 fun DependencyHandler.chucker(){
-    implementation( "com.github.chuckerteam.chucker:library:3.5.2")
+    implementation( Library.CHUCKER)
 }
 
 fun DependencyHandler.firebaseConf() {
@@ -89,6 +97,11 @@ fun DependencyHandler.joda() {
     implementation(Library.JODA)
 }
 
+fun DependencyHandler.navigation() {
+    implementation(Library.NAVIGATION_UI)
+    implementation(Library.NAVIGATION_FRAGMENT)
+}
+
 fun DependencyHandler.coroutines() {
     implementation(Library.COROUTINES_CORE)
     implementation(Library.COROUTINES_ANDROID)
@@ -96,6 +109,11 @@ fun DependencyHandler.coroutines() {
 
 fun DependencyHandler.implementationModule(moduleName: String) {
     implementation(project(":$moduleName"))
+}
+fun DependencyHandler.implementationModules(modules: List<String>) {
+    modules.forEach {
+        implementationModule(it)
+    }
 }
 
 private fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =

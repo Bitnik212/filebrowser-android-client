@@ -24,6 +24,7 @@ object Library {
     const val LOTTIE = "com.airbnb.android:lottie:${Version.LOTTIE}"
 
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Version.RETROFIT}"
+    const val RETROFIT_SCALARS = "com.squareup.retrofit2:converter-scalars:${Version.RETROFIT}"
 
     const val OKHTTP_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Version.OKHTTP}"
     const val OKHTTP = "com.squareup.okhttp3:okhttp-urlconnection:${Version.OKHTTP}"
@@ -32,6 +33,9 @@ object Library {
     const val MOSHI_KOTLIN = "com.squareup.moshi:moshi-kotlin:${Version.MOSHI}"
     const val MOSHI_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:${Version.MOSHI}"
     const val MOSHI_RETROFIT = "com.squareup.retrofit2:converter-moshi:${Version.RETROFIT}"
+
+    const val GSON = "com.google.code.gson:gson:${Version.GSON}"
+    const val GSON_RETROFIT = "com.squareup.retrofit2:converter-gson:${Version.GSON}"
 
     const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.SERIALIZATION}"
     const val SERIALIZATION_CONVERTER = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Version.SERIALIZATION_CONVERTER}"
@@ -61,4 +65,11 @@ object Library {
     const val ANDROIDX_SECURE = "androidx.security:security-crypto:${Version.ANDROIDX_SECURE}"
 
     const val WORK_MANAGER = "androidx.work:work-runtime-ktx:${Version.WORK_MANAGER}"
+
+    const val SPLASHSCREEN = "androidx.core:core-splashscreen:${Version.SPLASHSCREEN}"
+
+    const val CHUCKER = "com.github.chuckerteam.chucker:library:${Version.CHUCKER}"
+
+    const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${Version.NAVIGATION}"
+    const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Version.NAVIGATION}"
 }

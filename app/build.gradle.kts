@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id(Plugins.ANDROID_APPLICATION)
     id(Plugins.KOTLIN_ANDROID)
@@ -6,7 +8,8 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+
+    compileSdk = AndroidConfig.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = AndroidConfig.APP_ID
@@ -18,10 +21,22 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            val properties = initProperties()
+            storeFile = File(properties["storeFilePath"]?.toString() ?: "")
+            storePassword = properties["storePassword"]?.toString()
+            keyAlias = properties["keyAlias"]?.toString()
+            keyPassword = properties["keyPassword"]?.toString()
+        }
+
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             isMinifyEnabled = false
@@ -45,4 +60,14 @@ dependencies {
     coroutines()
     hilt()
     material()
+    splashscreen()
+    navigation()
+    implementationModules(Module.ALL_FEATURES)
+}
+
+fun initProperties(): Properties {
+    val properties = Properties()
+    val keyFilePropertiesPath = project.rootProject.file("key.properties").path
+    properties.load(File(keyFilePropertiesPath).inputStream())
+    return properties
 }
